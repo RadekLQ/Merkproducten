@@ -1,9 +1,6 @@
-package be.oak3.persistence;
+package be.oak3.model;
 
-import java.lang.reflect.Type;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 public abstract class Producten implements Comparator<Producten> {
     private int productNummer;

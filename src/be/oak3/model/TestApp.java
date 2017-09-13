@@ -1,4 +1,4 @@
-package be.oak3.persistence;
+package be.oak3.model;
 
 import java.util.List;
 
@@ -8,9 +8,9 @@ public class TestApp {
                 "Java Instructeur");
 
         Bestelling bestelling = new BestellingImpl();
-        List<Product> lijst = Data.getData();
+        List<Producten> lijst = Data.getData();
 
-        for (Product artikel : lijst) {
+        for (Producten artikel : lijst) {
             bestelling.voegProductToe(artikel);
         }
 
@@ -32,7 +32,7 @@ public class TestApp {
         System.out.println("\nAlle producten onder €50; ");
         bestelling.toonGoedkopeProducten();
 
-        Product product = bestelling.zoekDuursteProduct();
+        Producten product = bestelling.zoekDuursteProduct();
         System.out.println("\nDuurste product:\n" + product);
 
         System.out.printf("\nTotale prijs: €%.2f", bestelling.totalePrijs());

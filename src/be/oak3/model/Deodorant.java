@@ -1,8 +1,8 @@
-package be.oak3.persistence;
+package be.oak3.model;
 
 import java.util.Comparator;
 
-public class Deodorant extends Producten{
+public class Deodorant extends Producten {
     private enum DeoType {VAPO, STICK};
     private DeoType deoType;
 
@@ -13,7 +13,7 @@ public class Deodorant extends Producten{
 
     @Override
     public String toString() {
-        return super.toString() + "\t" + soort;
+        return super.toString() + "\t" + deoType;
     }
 
     @Override
