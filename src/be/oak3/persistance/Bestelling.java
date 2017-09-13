@@ -8,7 +8,7 @@ public interface Bestelling extends Bereknebaar {
      abstract Producten sorteer();
      abstract Producten sorteerOpMerk();
      abstract Producten sorteerOpVolume();
-     abstract Producten toonPerMerk();
+     abstract String toonPerMerk();
      abstract Producten toonParfums();
      abstract Producten toonGoedkopeProducten();
      abstract Producten zoekDuursteProduct();

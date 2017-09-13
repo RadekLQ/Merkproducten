@@ -1,6 +1,7 @@
 package be.oak3.model;
 
 import be.oak3.persistance.Bestelling;
+import be.oak3.persistance.BestellingImpl;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class TestApp {
         bestelling.sorteerOpVolume();
 
         System.out.println("\nVan het merk Georgio Armani:");
-        bestelling.toonPerMerk("Georgio Armani");
+        bestelling.toonPerMerk(/*"Georgio Armani"*/);
 
         System.out.println("\nAlle Parfums:");
         bestelling.toonParfums();

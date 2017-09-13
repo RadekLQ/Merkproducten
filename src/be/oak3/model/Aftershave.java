@@ -3,7 +3,7 @@ package be.oak3.model;
 import java.util.Comparator;
 
 public class Aftershave extends Producten {
-    private enum Soort {VAPO, GEL};
+    enum Soort {VAPO, GEL;}
     private Soort soort;
 
     public Aftershave(int productNummer, String merk, String naam, int volume, double prijs, Soort soort) {

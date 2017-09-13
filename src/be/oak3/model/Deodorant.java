@@ -3,7 +3,7 @@ package be.oak3.model;
 import java.util.Comparator;
 
 public class Deodorant extends Producten {
-    private enum DeoType {VAPO, STICK};
+    enum DeoType {VAPO, STICK};
     private DeoType deoType;
 
     public Deodorant(int productNummer, String merk, String naam, int volume, double prijs, DeoType deoType) {

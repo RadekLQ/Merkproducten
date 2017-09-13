@@ -24,8 +24,8 @@ public class Data {
     };
 
     // Geeft de lijst als een ArrayList terug
-    public static List<Product> getData() {
-        return new ArrayList<Product>(Arrays.asList(artikels));
+    public static List<Producten> getData() {
+        return new ArrayList<Producten>(Arrays.asList(artikels));
     }
 }
 
