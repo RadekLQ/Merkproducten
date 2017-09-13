@@ -1,6 +1,8 @@
 package be.oak3.persistence;
 
-public abstract class Aftershave extends Producten {
+import java.util.Comparator;
+
+public class Aftershave extends Producten {
     private enum Soort {VAPO, GEL};
     private Soort soort;
 
@@ -12,6 +14,16 @@ public abstract class Aftershave extends Producten {
     @Override
     public String toString() {
         return super.toString() + "\t" + soort;
+    }
+
+    @Override
+    public int compare(Producten o1, Producten o2) {
+        return 0;
+    }
+
+    @Override
+    public Comparator<Producten> reversed() {
+        return null;
     }
 
 
