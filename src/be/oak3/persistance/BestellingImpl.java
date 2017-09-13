@@ -3,6 +3,7 @@ package be.oak3.persistance;
 import be.oak3.model.Producten;
 
 public class BestellingImpl implements Bestelling {
+
     @Override
     public Producten voegProductToe(Producten product) {
         return null;

@@ -1,5 +1,6 @@
 package be.oak3.model;
 
+import java.text.NumberFormat;
 import java.util.Comparator;
 
 public abstract class Producten implements Comparator<Producten> {
@@ -21,40 +22,20 @@ public abstract class Producten implements Comparator<Producten> {
         return productNummer;
     }
 
-    public void setProductNummer(int productNummer) {
-        this.productNummer = productNummer;
-    }
-
     public String getMerk() {
         return merk;
-    }
-
-    public void setMerk(String merk) {
-        this.merk = merk;
     }
 
     public String getNaam() {
         return naam;
     }
 
-    public void setNaam(String naam) {
-        this.naam = naam;
-    }
-
     public int getVolume() {
         return volume;
     }
 
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
     public double getPrijs() {
         return prijs;
-    }
-
-    public void setPrijs(double prijs) {
-        this.prijs = prijs;
     }
 
     @Override
@@ -73,7 +54,12 @@ public abstract class Producten implements Comparator<Producten> {
     }
 
     public String getProductCode() {
-        return (merk.substring(0, 3) + naam.substring(0, 3) + volume).toUpperCase().replace(" ", "_");
+        StringBuilder code = new StringBuilder();
+        code.append(getMerk().toUpperCase().replace(' ', '_').substring(0, 3))
+                .append(getNaam().toUpperCase().replace(' ', '_').substring(0, 3))
+                .append(String.valueOf((getVolume())));
+
+        return code.toString();
     }
 
     public static Comparator<Producten> sorteerOpMerknaam() {
@@ -83,10 +69,14 @@ public abstract class Producten implements Comparator<Producten> {
 
     @Override
     public String toString() {
-        return "Lijst gesorteerd op natuurlijke volgorde: \n" +
-                productNummer + " merk:'" + merk + '\t' +
-                "naam:" + naam + '\t' + "volume: " + volume +
-                "\t prijs:" + prijs + "\t Code:" + getProductCode();
+        NumberFormat formatter = NumberFormat.getNumberInstance();
+        formatter.setMaximumFractionDigits(2);
+        return productNummer + " " +
+                "Merk: " + merk + "\t" +
+                "Naam: " + naam + "\t" +
+                "Volume: " + volume + "\t" +
+                "Prijs: " + formatter.format(prijs).toString() + "\t" +
+                "Code: " + getProductCode().toString() + "\t";
     }
 
 }

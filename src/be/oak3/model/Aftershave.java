@@ -4,6 +4,7 @@ import java.util.Comparator;
 
 public class Aftershave extends Producten {
     enum Soort {VAPO, GEL;}
+
     private Soort soort;
 
     public Aftershave(int productNummer, String merk, String naam, int volume, double prijs, Soort soort) {
