@@ -1,5 +1,7 @@
 package be.oak3.model;
 
+import be.oak3.persistance.Bestelling;
+
 import java.util.List;
 
 public class TestApp {
