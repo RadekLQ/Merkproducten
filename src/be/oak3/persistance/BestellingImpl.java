@@ -5,8 +5,7 @@ import be.oak3.model.Producten;
 public class BestellingImpl implements Bestelling {
 
     @Override
-    public Producten voegProductToe(Producten product) {
-        return null;
+    public void voegProductToe(Producten product) {
     }
 
     @Override

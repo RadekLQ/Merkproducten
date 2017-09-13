@@ -4,7 +4,7 @@ import be.oak3.model.Bereknebaar;
 import be.oak3.model.Producten;
 
 public interface Bestelling extends Bereknebaar {
-    abstract Producten voegProductToe(Producten product);
+    void voegProductToe(Producten product);
 
     abstract Producten sorteer();
 
