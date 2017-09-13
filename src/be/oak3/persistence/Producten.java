@@ -1,6 +1,11 @@
 package be.oak3.persistence;
 
-abstract class Producten implements Comparator<Product> {
+import java.lang.reflect.Type;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public abstract class Producten implements Comparator<Producten> {
     private int productNummer;
     public String merk;
     private String naam;
@@ -74,7 +79,7 @@ abstract class Producten implements Comparator<Product> {
         return (merk.substring(0, 3) + naam.substring(0, 3) + volume).toUpperCase().replace(" ", "_");
     }
 
-    public static Comparator<Product> sorteerOpMerknaam() {
+    public static Comparator<Producten> sorteerOpMerknaam() {
         return (o1, o2) -> o1.getMerk().compareTo(o2.getMerk());
 
     }
