@@ -1,22 +1,22 @@
 package be.oak3.persistance;
 
 import be.oak3.model.Bereknebaar;
-import be.oak3.model.Producten;
+import be.oak3.model.Product;
 
 public interface Bestelling extends Bereknebaar {
-    void voegProductToe(Producten product);
+    void voegProductToe(Product product);
 
-    abstract Producten sorteer();
+    void sorteer();
 
-    abstract Producten sorteerOpMerk();
+    void sorteerOpMerk();
 
-    abstract Producten sorteerOpVolume();
+    void sorteerOpVolume();
 
-    abstract Producten toonPerMerk();
+    void toonPerMerk();
 
-    abstract Producten toonParfums();
+    void toonParfums();
 
-    abstract Producten toonGoedkopeProducten();
+    void toonGoedkopeProducten();
 
-    abstract Producten zoekDuursteProduct();
+    void zoekDuursteProduct();
 }

@@ -1,5 +1,6 @@
 package be.oak3.model;
 
+
 import java.util.Comparator;
 
 public class Parfum extends Product {

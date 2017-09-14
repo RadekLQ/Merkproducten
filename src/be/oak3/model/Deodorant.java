@@ -3,7 +3,7 @@ package be.oak3.model;
 import java.util.Comparator;
 
 public class Deodorant extends Product {
-    enum DeoType {VAPO, STICK}
+    public enum DeoType {VAPO, STICK}
 
     ;
     private DeoType deoType;
@@ -15,7 +15,7 @@ public class Deodorant extends Product {
 
     @Override
     public String toString() {
-        return super.toString() + "\t" + deoType;
+        return super.toString() + "\t" + deoType.name();
     }
 
     @Override

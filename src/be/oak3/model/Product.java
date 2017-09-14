@@ -12,7 +12,7 @@ public abstract class Product implements Comparator<Product> {
     private int volume;
     private double prijs;
 
-    // CONSTRUCTOR
+    // CONSTRUCTOR met parameters
     public Product(int productNummer, String merk, String naam, int volume, double prijs) {
         this.productNummer = productNummer;
         this.merk = merk;
@@ -41,6 +41,10 @@ public abstract class Product implements Comparator<Product> {
 
     public double getPrijs() {
         return prijs;
+    }
+
+    public void setProductNummer(int productNummer) {
+        this.productNummer = productNummer;
     }
 
     @Override

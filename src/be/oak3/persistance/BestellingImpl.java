@@ -1,46 +1,58 @@
 package be.oak3.persistance;
 
-import be.oak3.model.Producten;
+import be.oak3.model.Product;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
 
 public class BestellingImpl implements Bestelling {
 
-    @Override
-    public void voegProductToe(Producten product) {
+    //INSTANCE VARIABELEN
+    private static int productNummer = 1000;
+    private List<Product> bestelling = new ArrayList<>();
+
+    public BestellingImpl() {
     }
 
     @Override
-    public Producten sorteer() {
-        return null;
+    public void voegProductToe(Product artikel) {
+        artikel.setProductNummer(productNummer += 1);
+        bestelling.add(artikel);
     }
 
     @Override
-    public Producten sorteerOpMerk() {
-        return null;
+    public void sorteer() {
+        return ;
     }
 
     @Override
-    public Producten sorteerOpVolume() {
-        return null;
+    public void sorteerOpMerk() {
+        return ;
     }
 
     @Override
-    public Producten toonPerMerk() {
-        return null;
+    public void sorteerOpVolume() {
+        return ;
     }
 
     @Override
-    public Producten toonParfums() {
-        return null;
+    public void toonPerMerk() {
+        return ;
     }
 
     @Override
-    public Producten toonGoedkopeProducten() {
-        return null;
+    public void toonParfums() {
+        return ;
     }
 
     @Override
-    public Producten zoekDuursteProduct() {
-        return null;
+    public void toonGoedkopeProducten() {
+        return ;
+    }
+
+    @Override
+    public void zoekDuursteProduct() {
+        return ;
     }
 
     @Override

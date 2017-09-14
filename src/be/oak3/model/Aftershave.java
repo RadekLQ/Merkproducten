@@ -3,8 +3,13 @@ package be.oak3.model;
 import java.util.Comparator;
 
 public class Aftershave extends Product {
-    enum Soort {VAPO, GEL;}
 
+    //GENESTE ENUM
+    public enum Soort {
+        VAPO, GEL;
+    }
+
+    //INSTANCE VARIABELEN
     private Soort soort;
 
     public Aftershave(int productNummer, String merk, String naam, int volume, double prijs, Soort soort) {
@@ -12,9 +17,10 @@ public class Aftershave extends Product {
         this.soort = soort;
     }
 
+    //Overschrijven van toString methode
     @Override
     public String toString() {
-        return super.toString() + "\t" + soort;
+        return super.toString() + "\t" + soort.name();
     }
 
     @Override
