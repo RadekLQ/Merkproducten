@@ -11,9 +11,9 @@ public class TestApp {
                 "Java Instructeur");
 
         Bestelling bestelling = new BestellingImpl();
-        List<Producten> lijst = Data.getData();
+        List<Product> lijst = Data.getData();
 
-        for (Producten artikel : lijst) {
+        for (Product artikel : lijst) {
             bestelling.voegProductToe(artikel);
         }
 
@@ -35,7 +35,7 @@ public class TestApp {
         System.out.println("\nAlle producten onder €50; ");
         bestelling.toonGoedkopeProducten();
 
-        Producten product = bestelling.zoekDuursteProduct();
+        Product product = bestelling.zoekDuursteProduct();
         System.out.println("\nDuurste product:\n" + product);
 
         System.out.printf("\nTotale prijs: €%.2f", bestelling.totalePrijs());

@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Data {
-    private static Producten[] artikels = {
+    private static Product[] artikels = {
             new Parfum(0, "Dolce & Gabbana", "Light Blue", 100, 66.72),
             new Parfum(0, "BVLGARI", "BLV", 75, 61.52),
             new Deodorant(0, "DKNY", "Be Delicious Women", 100, 33.65,
@@ -24,8 +24,8 @@ public class Data {
     };
 
     // Geeft de lijst als een ArrayList terug
-    public static List<Producten> getData() {
-        return new ArrayList<Producten>(Arrays.asList(artikels));
+    public static List<Product> getData() {
+        return new ArrayList<Product>(Arrays.asList(artikels));
     }
 }
 

@@ -3,20 +3,25 @@ package be.oak3.model;
 import java.text.NumberFormat;
 import java.util.Comparator;
 
-public abstract class Producten implements Comparator<Producten> {
+public abstract class Product implements Comparator<Product> {
+
+//    INSTANCE VARIABELEN
     private int productNummer;
     public String merk;
     private String naam;
     private int volume;
     private double prijs;
 
-    public Producten(int productNummer, String merk, String naam, int volume, double prijs) {
+    // CONSTRUCTOR
+    public Product(int productNummer, String merk, String naam, int volume, double prijs) {
         this.productNummer = productNummer;
         this.merk = merk;
         this.naam = naam;
         this.volume = volume;
         this.prijs = prijs;
     }
+
+    //GETTERS
 
     public int getProductNummer() {
         return productNummer;
@@ -43,7 +48,7 @@ public abstract class Producten implements Comparator<Producten> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Producten producten = (Producten) o;
+        Product producten = (Product) o;
 
         return productNummer == producten.productNummer;
     }
@@ -62,10 +67,28 @@ public abstract class Producten implements Comparator<Producten> {
         return code.toString();
     }
 
-    public static Comparator<Producten> sorteerOpMerknaam() {
-        return (o1, o2) -> o1.getMerk().compareTo(o2.getMerk());
 
-    }
+
+    /*
+        public static Comparator<Product> sorteerOpMerknaam() {
+                Comparator<Product> comparator = new Co here druk ENTER
+                }
+
+        }*/
+    //
+
+    public static Comparator<Product> sorteerOpMerknaam() {
+     //Comparator<Product> comparator = new Comparator<Product>() {
+
+         //public int compare(Product o1, Product o2) {
+         //return o1.getMerk().compareTo(o2.getMerk());
+         //}
+         return Comparator.comparing(Product::getMerk);
+
+         //return (p1,p2)
+     }
+
+
 
     @Override
     public String toString() {
@@ -77,6 +100,11 @@ public abstract class Producten implements Comparator<Producten> {
                 "Volume: " + volume + "\t" +
                 "Prijs: " + formatter.format(prijs).toString() + "\t" +
                 "Code: " + getProductCode().toString() + "\t";
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        return this.productNummer - o.productNummer;
     }
 
 }

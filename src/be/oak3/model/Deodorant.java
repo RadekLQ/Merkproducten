@@ -2,7 +2,7 @@ package be.oak3.model;
 
 import java.util.Comparator;
 
-public class Deodorant extends Producten {
+public class Deodorant extends Product {
     enum DeoType {VAPO, STICK}
 
     ;
@@ -19,12 +19,12 @@ public class Deodorant extends Producten {
     }
 
     @Override
-    public int compare(Producten o1, Producten o2) {
+    public int compare(Product o1, Product o2) {
         return 0;
     }
 
     @Override
-    public Comparator<Producten> reversed() {
+    public Comparator<Product> reversed() {
         return null;
     }
 }
