@@ -4,6 +4,7 @@ import be.oak3.model.Bereknebaar;
 import be.oak3.model.Product;
 
 public interface Bestelling extends Bereknebaar {
+
     void voegProductToe(Product product);
 
     void sorteer();
@@ -12,11 +13,11 @@ public interface Bestelling extends Bereknebaar {
 
     void sorteerOpVolume();
 
-    void toonPerMerk();
+    void toonPerMerk(String merk);
 
     void toonParfums();
 
     void toonGoedkopeProducten();
 
-    void zoekDuursteProduct();
+    Product zoekDuursteProduct();
 }
