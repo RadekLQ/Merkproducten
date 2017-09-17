@@ -15,16 +15,7 @@ public class Deodorant extends Product {
 
     @Override
     public String toString() {
-        return super.toString() + "\t" + deoType.name();
+        return super.toString() + "\t" + deoType.toString();
     }
 
-    @Override
-    public int compare(Product o1, Product o2) {
-        return 0;
-    }
-
-    @Override
-    public Comparator<Product> reversed() {
-        return null;
-    }
 }

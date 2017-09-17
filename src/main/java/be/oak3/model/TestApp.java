@@ -7,8 +7,8 @@ import java.util.List;
 
 public class TestApp {
     public static void main(String[] args) {
-        System.out.printf("Oplossing van %s %s\n", "Kenneth Van Gijsel ",
-                "Java Instructeur");
+        System.out.printf("Oplossing van %s %s\n", "Radek Lizak ",
+                "Trainee Enterprise Java Developer\\n");
 
         Bestelling bestelling = new BestellingImpl();
         List<Product> lijst = Data.getData();
@@ -27,7 +27,7 @@ public class TestApp {
         bestelling.sorteerOpVolume();
 
         System.out.println("\nVan het merk Georgio Armani:");
-        bestelling.toonPerMerk(/*"Georgio Armani"*/);
+        bestelling.toonPerMerk("Georgio Armani");
 
         System.out.println("\nAlle Parfums:");
         bestelling.toonParfums();

@@ -14,15 +14,4 @@ public class Parfum extends Product {
         return super.toString() + "\t";
     }
 
-    @Override
-    public int compare(Product o1, Product o2) {
-        return 0;
-    }
-
-    @Override
-    public Comparator<Product> reversed() {
-        return null;
-    }
-
-
 }

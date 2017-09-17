@@ -1,7 +1,5 @@
 package be.oak3.model;
 
-import java.util.Comparator;
-
 public class Aftershave extends Product {
 
     //GENESTE ENUM
@@ -20,18 +18,10 @@ public class Aftershave extends Product {
     //Overschrijven van toString methode
     @Override
     public String toString() {
-        return super.toString() + "\t" + soort.name();
+        return super.toString() + "\t" + soort.toString();
     }
 
-    @Override
-    public int compare(Product o1, Product o2) {
-        return 0;
-    }
 
-    @Override
-    public Comparator<Product> reversed() {
-        return null;
-    }
 
 
 }

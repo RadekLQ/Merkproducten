@@ -5,19 +5,21 @@ import be.oak3.model.Product;
 
 public interface Bestelling extends Bereknebaar {
 
-    void voegProductToe(Product product);
+    public void voegProductToe(Product product);
 
-    void sorteer();
+    public void sorteer();
 
-    void sorteerOpMerk();
+    public void sorteerOpMerk();
 
-    void sorteerOpVolume();
+    public void sorteerOpVolume();
 
-    void toonPerMerk(String merk);
+    public void toonPerMerk(String merk);
 
-    void toonParfums();
+    public void toonParfums();
 
-    void toonGoedkopeProducten();
+    public void toonGoedkopeProducten();
 
-    Product zoekDuursteProduct();
+    public Product zoekDuursteProduct();
+
+    public double totalePrijs();
 }

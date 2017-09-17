@@ -1,6 +1,6 @@
 package be.oak3.model;
 
-@FunctionalInterface
+//@FunctionalInterface
 public interface Bereknebaar {
     public double totalePrijs();
 }

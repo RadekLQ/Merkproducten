@@ -1,12 +1,18 @@
 package be.oak3.model;
 
+import com.sun.deploy.util.StringUtils;
+
+import java.io.Serializable;
 import java.text.NumberFormat;
 import java.util.Comparator;
 
-public abstract class Product implements Comparator<Product> {
+//import org.apache.commons.lang3.StringUtils;
+
+public abstract class Product implements Comparator<Product>, Comparable<Product>, Serializable {
 
 //    INSTANCE VARIABELEN
     private int productNummer;
+    private static int productNr = 1000;
     public String merk;
     private String naam;
     private int volume;
@@ -19,6 +25,7 @@ public abstract class Product implements Comparator<Product> {
         this.naam = naam;
         this.volume = volume;
         this.prijs = prijs;
+        this.productNr++;
     }
 
     //GETTERS
@@ -43,18 +50,27 @@ public abstract class Product implements Comparator<Product> {
         return prijs;
     }
 
-    public void setProductNummer(int productNummer) {
-        this.productNummer = productNummer;
+    public String getProductCode(){
+        return (merk.substring(0,3) + naam.substring(0,3) + volume).toUpperCase().replace(" ","_");
+    }
+
+    public static Comparator<Product> sorteerOpMerknaam() {
+        return Comparator.comparing(Product::getMerk);
+    }
+
+    @Override
+    public int compare(Product o1, Product o2) {
+        return o1.getMerk().compareTo(o2.getMerk());
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Product)) {
+            return false;
+        }
 
-        Product producten = (Product) o;
-
-        return productNummer == producten.productNummer;
+        Product p = (Product) o;
+        return productNummer == p.getProductNummer();
     }
 
     @Override
@@ -62,53 +78,15 @@ public abstract class Product implements Comparator<Product> {
         return productNummer;
     }
 
-    public String getProductCode() {
-        StringBuilder code = new StringBuilder();
-        code.append(getMerk().toUpperCase().replace(' ', '_').substring(0, 3))
-                .append(getNaam().toUpperCase().replace(' ', '_').substring(0, 3))
-                .append(String.valueOf((getVolume())));
-
-        return code.toString();
+    @Override
+    public int compareTo(Product p) {
+        return productNummer - p.getProductNummer();
     }
-
-
-
-    /*
-        public static Comparator<Product> sorteerOpMerknaam() {
-                Comparator<Product> comparator = new Co here druk ENTER
-                }
-
-        }*/
-    //
-
-    public static Comparator<Product> sorteerOpMerknaam() {
-     //Comparator<Product> comparator = new Comparator<Product>() {
-
-         //public int compare(Product o1, Product o2) {
-         //return o1.getMerk().compareTo(o2.getMerk());
-         //}
-         return Comparator.comparing(Product::getMerk);
-
-         //return (p1,p2)
-     }
-
-
 
     @Override
     public String toString() {
-        NumberFormat formatter = NumberFormat.getNumberInstance();
-        formatter.setMaximumFractionDigits(2);
-        return productNummer + " " +
-                "Merk: " + merk + "\t" +
-                "Naam: " + naam + "\t" +
-                "Volume: " + volume + "\t" +
-                "Prijs: " + formatter.format(prijs).toString() + "\t" +
-                "Code: " + getProductCode().toString() + "\t";
+        return String.format("%d %s %-20s %10s %-24s %10s %3sml %8s %4.2f %5s %s",
+                getProductNummer(), "Merk:", getMerk(), "Naam:", getNaam(), "Volume:", getVolume(),
+                "Prijs:", getPrijs(), "Code:", getProductCode());
     }
-
-    @Override
-    public int compareTo(Product o) {
-        return this.productNummer - o.productNummer;
-    }
-
 }
