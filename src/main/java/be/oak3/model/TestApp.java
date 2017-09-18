@@ -4,11 +4,20 @@ import be.oak3.persistance.Bestelling;
 import be.oak3.persistance.BestellingImpl;
 
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TestApp {
+
+    final static Logger logger = LoggerFactory.getLogger(TestApp.class);
+
     public static void main(String[] args) {
+
+        logger.info("Entering application.");
+        logger.trace("Entering application.");
+
         System.out.printf("Oplossing van %s %s\n", "Radek Lizak ",
-                "Trainee Enterprise Java Developer\\n");
+                "student Enterprise Java Developer Oak3/VDAB/QNH\\n");
 
         Bestelling bestelling = new BestellingImpl();
         List<Product> lijst = Data.getData();
@@ -39,6 +48,9 @@ public class TestApp {
         System.out.println("\nDuurste product:\n" + product);
 
         System.out.printf("\nTotale prijs: €%.2f", bestelling.totalePrijs());
+
+        logger.info("Exiting application.");
+        logger.trace("Exiting application.");
 
     }
 }

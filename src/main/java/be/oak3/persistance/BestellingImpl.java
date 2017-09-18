@@ -7,13 +7,11 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-//import org.apache.log4j.Level;
-//import org.apache.log4j.Logger;
-
 public class BestellingImpl implements Bestelling {
 
+//    INSTANCE VARIABLES
+
     public List<Product> bestelling = new ArrayList<>();
-//    private static final Logger LOGGER = Logger.getLogger(BestellingImpl.class.getName());
 
     public BestellingImpl() {
 
@@ -22,6 +20,7 @@ public class BestellingImpl implements Bestelling {
     @Override
     public void voegProductToe(Product product) {
         bestelling.add(product);
+        //ProductNummer++;
 
     }
 
@@ -29,11 +28,13 @@ public class BestellingImpl implements Bestelling {
     public void sorteer() {
         bestelling.stream().sorted().forEach(System.out::println);
 //        bestelling.stream().sorted().forEach(bestelling -> LOGGER.log(Level.DEBUG,bestelling));
+//
+
     }
 
     @Override
     public void sorteerOpMerk() {
-        bestelling.stream().sorted(Comparator.comparing(Product::getMerk)).forEach(System.out::println);
+        bestelling.stream().sorted(Product.sorteerOpMerknaam()).forEach(System.out::println);
     }
 
     @Override
@@ -69,15 +70,12 @@ public class BestellingImpl implements Bestelling {
 
     @Override
     public Product zoekDuursteProduct() {
-        return bestelling.stream().max(Comparator.comparing(Product::getPrijs)).get();
+        return bestelling.stream().max(Comparator.comparing(Product::getPrijs)).orElseThrow(RuntimeException::new);
+        //orElseThrow(RunimeException::new)
     }
 
     @Override
     public double totalePrijs() {
-        double totalePrijs = 0.00D;
-        for (Product p : bestelling) {
-            totalePrijs = totalePrijs + p.getPrijs();
-        }
-        return totalePrijs;
+        return bestelling.stream().mapToDouble(Product::getPrijs).sum();
     }
 }

@@ -1,16 +1,11 @@
 package be.oak3.model;
 
-import com.sun.deploy.util.StringUtils;
-
 import java.io.Serializable;
-import java.text.NumberFormat;
 import java.util.Comparator;
-
-//import org.apache.commons.lang3.StringUtils;
 
 public abstract class Product implements Comparator<Product>, Comparable<Product>, Serializable {
 
-//    INSTANCE VARIABELEN
+    //    INSTANCE VARIABELEN
     private int productNummer;
     private static int productNr = 1000;
     public String merk;
@@ -50,8 +45,8 @@ public abstract class Product implements Comparator<Product>, Comparable<Product
         return prijs;
     }
 
-    public String getProductCode(){
-        return (merk.substring(0,3) + naam.substring(0,3) + volume).toUpperCase().replace(" ","_");
+    public String getProductCode() {
+        return (merk.substring(0, 3) + naam.substring(0, 3) + volume).toUpperCase().replace(" ", "_");
     }
 
     public static Comparator<Product> sorteerOpMerknaam() {
