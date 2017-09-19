@@ -61,9 +61,9 @@ public class BestellingImpl implements Bestelling {
     @Override
     public void lijstVanBepaaldMerk(String merk) {
         List<Product> merken = Lists.newArrayList();
-        for (Product p : bestelling) {
-            if (p.getMerk().equals(merk)) {
-                merken.add(p);
+        for (Product product : bestelling) {
+            if (product.getMerk().equals(merk)) {
+                merken.add(product);
             }
         }
 
@@ -87,9 +87,9 @@ public class BestellingImpl implements Bestelling {
     @Override
     public void lijstVanParfums() {
         List<Product> parfums = Lists.newArrayList();
-        for (Product p : bestelling) {
-            if (p instanceof Parfum) {
-                parfums.add(p);
+        for (Product product : bestelling) {
+            if (product instanceof Parfum) {
+                parfums.add(product);
             }
         }
         parfums.stream().sorted(Comparator.comparing(Product::getProductCode)).forEach(bestelling -> LOGGER.log(Level.INFO, bestelling));
@@ -106,9 +106,9 @@ public class BestellingImpl implements Bestelling {
     @Override
     public void lijstVanGoedkopeProducten() {
         List<Product> goedkopers = Lists.newArrayList();
-        for (Product p : bestelling) {
-            if (p.getPrijs() <= 50.00D) {
-                goedkopers.add(p);
+        for (Product product : bestelling) {
+            if (product.getPrijs() <= 50.00D) {
+                goedkopers.add(product);
             }
         }
         goedkopers.stream()

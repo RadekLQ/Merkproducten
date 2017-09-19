@@ -1,33 +1,31 @@
 package be.oak3.persistance;
 
-import be.oak3.model.Parfum;
+import be.oak3.model.Aftershave;
+import be.oak3.model.Data;
 import be.oak3.model.Product;
+import com.google.common.collect.Lists;
+import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+
 public class BestellingImplTest {
+    private Bestelling bestelling;
 
-    Parfum parfum1 = new Parfum(0, "Dolce & Gabbana", "Light Blue", 100, 66.72);
-    Parfum parfum2 = new Parfum(0, "BVLGARI", "BLV", 75, 61.52);
-    Parfum parfum3 = new Parfum(0, "Georgio Armani", "Code Donna", 50, 59.32);
-    Parfum parfum4 = new Parfum(0, "Givency", "Absolutely Irresistible", 75, 75.42);
-    Parfum parfum5 = new Parfum(0, "Ted Lapidus", "Pour Elle", 50, 44.48);
-    Parfum parfum6 = new Parfum(0, "Georgio Armani", "Code Donna", 30, 39.84);
-    Parfum parfum7 = new Parfum(0, "Georgio Armani", "Code Donna", 75, 76.00);
-
-//    public List<Parfum> parfum = Lists.newArrayList();
-    public List<Product> parfum = new ArrayList<>();
-    for (Product product: parfum) {
-        if (product instanceof Parfum) {
-            parfum.add(parfum1);
+    @Before
+    public void init() {
+        List<Product> lijst = Lists.newArrayList();
+        lijst = Data.getData();
+        bestelling = new BestellingImpl();
+        for (Product product : lijst) {
+            if (product instanceof Product) {
+                lijst.add(product);
+            }
         }
     }
-
-
-
-
 
     @Test
     public void testVoegProductToe() throws Exception {
@@ -50,8 +48,12 @@ public class BestellingImplTest {
     }
 
     @Test
-    public void testLijstVanParfums()  {
-
+    public void testLijstVanParfum() {
+        assertThat(bestelling).isInstanceOf(Aftershave.class);
+        assertThat(bestelling).isExactlyInstanceOf(Aftershave.class);
+//        assertThat(bestelling.lijstVanParfums()).isNotNull();
+//        assertThat(bestelling.lijstVanParfums()).hasSize(7);
+//        assertThat(bestelling.lijstVanParfums()).first().isInstanceOf(Parfum.class);
 
     }
 

@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ProductTest {
 //  AssertJ
 
-    Product product = new Parfum(1001, "Dolce & Gabbana", "Light Blue", 100, 66.72);
+    private Product product = new Parfum(1001, "Dolce & Gabbana", "Light Blue", 100, 66.72);
 
 //  jUnit
 
