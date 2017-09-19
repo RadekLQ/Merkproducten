@@ -20,7 +20,6 @@ public class Data {
             new Parfum(0, "Georgio Armani", "Code Donna", 30, 39.84),
             new Parfum(0, "Georgio Armani", "Code Donna", 75, 76.00),
             new Deodorant(0, "Cacharel", "Anais", 50, 24.50, Deodorant.DeoType.VAPO),
-
     };
 
     // Geeft de lijst als een ArrayList terug
@@ -28,4 +27,3 @@ public class Data {
         return new ArrayList<Product>(Arrays.asList(artikels));
     }
 }
-

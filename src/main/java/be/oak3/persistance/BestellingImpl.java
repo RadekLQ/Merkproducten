@@ -6,18 +6,16 @@ import com.google.common.collect.Lists;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 public class BestellingImpl implements Bestelling {
 
-//    INSTANCE VARIABLES
-
+    //    INSTANCE VARIABLES
     private static final Logger LOGGER = Logger.getLogger(BestellingImpl.class.getName());
+    private static int productNummer = 1000;
 
-//    https://google.github.io/guava/releases/22.0/api/docs/com/google/common/collect/Lists.html
-
+    //    https://google.github.io/guava/releases/22.0/api/docs/com/google/common/collect/Lists.html
     //    public List<Product> bestelling = new ArrayList<>();
     public List<Product> bestelling = Lists.newArrayList();
 
@@ -29,7 +27,6 @@ public class BestellingImpl implements Bestelling {
     public void voegProductToe(Product product) {
         bestelling.add(product);
         //ProductNummer++;
-
     }
 
     @Override
@@ -53,39 +50,74 @@ public class BestellingImpl implements Bestelling {
                 .forEach(bestelling -> LOGGER.log(Level.INFO, bestelling));
     }
 
-    @Override
-    public void toonPerMerk(String merk) {
+//        @Override -> console application
+//    public void toonPerMerk(String merk) {
+////        bestelling.stream().filter(product -> product.getMerk().equals(merk))
+////                .sorted(Comparator.comparing(Product::getProductCode)).forEach(System.out::println);
 //        bestelling.stream().filter(product -> product.getMerk().equals(merk))
-//                .sorted(Comparator.comparing(Product::getProductCode)).forEach(System.out::println);
-        bestelling.stream().filter(product -> product.getMerk().equals(merk))
+//                .sorted(Comparator.comparing(Product::getProductCode)).forEach(bestelling -> LOGGER.log(Level.INFO, bestelling));
+//    }
+
+    @Override
+    public void lijstVanBepaaldMerk(String merk) {
+        List<Product> merken = Lists.newArrayList();
+        for (Product p : bestelling) {
+            if (p.getMerk().equals(merk)) {
+                merken.add(p);
+            }
+        }
+
+        merken.stream().filter(product -> product.getMerk().equals(merk))
                 .sorted(Comparator.comparing(Product::getProductCode)).forEach(bestelling -> LOGGER.log(Level.INFO, bestelling));
     }
 
+//        @Override -> console application
+//    public void toonParfums() {
+//        List<Product> parfums = new ArrayList<>();
+//        for (Product p : bestelling) {
+//            if (p instanceof Parfum) {
+//                parfums.add(p);
+//            }
+//        }
+////        parfums.stream().sorted(Comparator.comparing(Product::getProductCode)).forEach(System.out::println);
+//        parfums.stream().sorted(Comparator.comparing(Product::getProductCode)).forEach(bestelling -> LOGGER.log(Level.INFO, bestelling));
+//
+//    }
+
     @Override
-    public void toonParfums() {
-        List<Product> parfums = new ArrayList<>();
+    public void lijstVanParfums() {
+        List<Product> parfums = Lists.newArrayList();
         for (Product p : bestelling) {
             if (p instanceof Parfum) {
                 parfums.add(p);
             }
         }
-//        parfums.stream().sorted(Comparator.comparing(Product::getProductCode)).forEach(System.out::println);
         parfums.stream().sorted(Comparator.comparing(Product::getProductCode)).forEach(bestelling -> LOGGER.log(Level.INFO, bestelling));
-
     }
 
-    @Override
-    public void toonGoedkopeProducten() {
+//        @Override -> console application
+//    public void toonGoedkopeProducten() {
 //        bestelling.stream().filter(product -> product.getPrijs() <= 50.00D)
-//                .sorted(Comparator.comparing(Product::getProductCode)).forEach(System.out::println);
-        bestelling.stream().filter(product -> product.getPrijs() <= 50.00D)
+////                .sorted(Comparator.comparing(Product::getProductCode)).forEach(System.out::println);
+//        bestelling.stream().filter(product -> product.getPrijs() <= 50.00D)
+//                .sorted(Comparator.comparing(Product::getProductCode)).forEach(bestelling -> LOGGER.log(Level.INFO, bestelling));
+//    }
+
+    @Override
+    public void lijstVanGoedkopeProducten() {
+        List<Product> goedkopers = Lists.newArrayList();
+        for (Product p : bestelling) {
+            if (p.getPrijs() <= 50.00D) {
+                goedkopers.add(p);
+            }
+        }
+        goedkopers.stream()
                 .sorted(Comparator.comparing(Product::getProductCode)).forEach(bestelling -> LOGGER.log(Level.INFO, bestelling));
     }
 
     @Override
     public Product zoekDuursteProduct() {
         return bestelling.stream().max(Comparator.comparing(Product::getPrijs)).orElseThrow(RuntimeException::new);
-        //orElseThrow(RunimeException::new)
     }
 
     @Override

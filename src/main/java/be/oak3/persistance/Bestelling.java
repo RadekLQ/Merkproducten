@@ -13,11 +13,14 @@ public interface Bestelling extends Bereknebaar {
 
     public void sorteerOpVolume();
 
-    public void toonPerMerk(String merk);
+//    public void toonPerMerk(String merk); -> console application
+    public void lijstVanBepaaldMerk(String merk);
 
-    public void toonParfums();
+//    public void toonParfums(); -> console application
+    public void lijstVanParfums();
 
-    public void toonGoedkopeProducten();
+//    public void toonGoedkopeProducten(); -> console application
+    public void lijstVanGoedkopeProducten();
 
     public Product zoekDuursteProduct();
 
