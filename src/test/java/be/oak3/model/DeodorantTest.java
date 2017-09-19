@@ -2,21 +2,21 @@ package be.oak3.model;
 
 import org.junit.Test;
 
+import static be.oak3.model.Deodorant.DeoType.STICK;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DeodorantTest {
 
     Deodorant deodorant = new Deodorant(1003, "DKNY", "Be Delicious Women", 100, 33.65,
-            Deodorant.DeoType.STICK);
+            STICK);
 
     @Test
     public void testToString() {
         assertThat(deodorant).isInstanceOfAny(Product.class);
         assertThat(deodorant).isInstanceOf(Product.class);
         assertThat(deodorant).isInstanceOf(Deodorant.class);
-        assertThat(deodorant).hasToString(Deodorant.DeoType.STICK.toString());
+        assertThat(deodorant).hasToString(STICK.toString());
         assertThat(deodorant).isNotNull();
-
         assertThat(deodorant.getProductNummer()).isEqualTo(1003);
         assertThat(deodorant.getMerk()).isEqualTo("DKNY");
         assertThat(deodorant.getNaam()).isEqualTo("Be Delicious Women");
