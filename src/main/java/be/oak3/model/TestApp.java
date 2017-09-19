@@ -2,10 +2,10 @@ package be.oak3.model;
 
 import be.oak3.persistance.Bestelling;
 import be.oak3.persistance.BestellingImpl;
-
-import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
 
 public class TestApp {
 
@@ -16,8 +16,7 @@ public class TestApp {
         logger.info("Entering application.");
         logger.trace("Entering application.");
 
-        System.out.printf("Oplossing van %s %s\n", "Radek Lizak ",
-                "student Enterprise Java Developer Oak3/VDAB/QNH\\n");
+        System.out.printf("Oplossing van %s %s\n", "Radek Lizak ", "student Java Developer Oak3/VDAB/QNH\\n");
 
         Bestelling bestelling = new BestellingImpl();
         List<Product> lijst = Data.getData();
