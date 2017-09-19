@@ -18,7 +18,7 @@ public class BestellingImpl implements Bestelling {
 
 //    https://google.github.io/guava/releases/22.0/api/docs/com/google/common/collect/Lists.html
 
-//    public List<Product> bestelling = new ArrayList<>();
+    //    public List<Product> bestelling = new ArrayList<>();
     public List<Product> bestelling = Lists.newArrayList();
 
     public BestellingImpl() {
