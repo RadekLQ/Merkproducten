@@ -15,7 +15,7 @@ public class DeodorantTest {
         assertThat(deodorant).isInstanceOfAny(Product.class);
         assertThat(deodorant).isInstanceOf(Product.class);
         assertThat(deodorant).isInstanceOf(Deodorant.class);
-        assertThat(deodorant).hasToString(STICK.toString());
+        //assertThat(deodorant).hasToString(STICK.toString());
         assertThat(deodorant).isNotNull();
         assertThat(deodorant.getProductNummer()).isEqualTo(1003);
         assertThat(deodorant.getMerk()).isEqualTo("DKNY");

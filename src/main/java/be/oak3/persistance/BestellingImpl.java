@@ -26,7 +26,7 @@ public class BestellingImpl implements Bestelling {
     @Override
     public void voegProductToe(Product product) {
         bestelling.add(product);
-        //ProductNummer++;
+//        ProductNummer++;
     }
 
     @Override

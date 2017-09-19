@@ -2,8 +2,7 @@ package be.oak3.model;
 
 import org.junit.Test;
 
-import static be.oak3.model.Deodorant.DeoType.VAPO;
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
 public class AftershaveTest {
 
@@ -15,7 +14,7 @@ public class AftershaveTest {
         assertThat(aftershave).isInstanceOfAny(Product.class);
         assertThat(aftershave).isInstanceOf(Product.class);
         assertThat(aftershave).isInstanceOf(Aftershave.class);
-        assertThat(aftershave).hasToString(VAPO.toString());
+        //assertThat(aftershave).hasToString(VAPO.toString());
         assertThat(aftershave).isNotNull();
         assertThat(aftershave.getProductNummer()).isEqualTo(1002);
         assertThat(aftershave.getMerk()).isEqualTo("Yves Saint Laurent");
