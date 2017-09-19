@@ -1,5 +1,7 @@
 package be.oak3.model;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.Serializable;
 import java.util.Comparator;
 
@@ -46,7 +48,11 @@ public abstract class Product implements Comparator<Product>, Comparable<Product
     }
 
     public String getProductCode() {
-        return (merk.substring(0, 3) + naam.substring(0, 3) + volume).toUpperCase().replace(" ", "_");
+//        return (merk.substring(0, 3) + naam.substring(0, 3) + volume).toUpperCase().replace(" ", "_");
+//        https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html
+//        https://examples.javacodegeeks.com/core-java/apache/commons/lang3/stringutils/org-apache-commons-lang3-stringutils-example/
+
+         return StringUtils.upperCase(StringUtils.join(StringUtils.substring(merk,0,3),StringUtils.substring(naam,0,3), volume));
     }
 
     public static Comparator<Product> sorteerOpMerknaam() {
