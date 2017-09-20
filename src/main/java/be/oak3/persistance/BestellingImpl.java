@@ -20,7 +20,16 @@ public class BestellingImpl implements Bestelling {
     public List<Product> bestelling = Lists.newArrayList();
 
     public BestellingImpl() {
+    }
 
+    //
+    public List<Product> getBestelling() {
+        return bestelling;
+    }
+
+    //GUAVA
+    public BestellingImpl(List<Product> bestelling) {
+        this.bestelling = bestelling;
     }
 
     @Override

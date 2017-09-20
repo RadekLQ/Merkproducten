@@ -20,6 +20,7 @@ public class AftershaveTest {
         assertThat(aftershave.getNaam()).isEqualTo("Jazz");
         assertThat(aftershave.getVolume()).isEqualTo(50);
         assertThat(aftershave.getPrijs()).isEqualTo(39.84);
+        assertThat(aftershave.toString()).contains("GEL");
         assertThat(aftershave.toString()).containsIgnoringCase("GEL");
     }
 }

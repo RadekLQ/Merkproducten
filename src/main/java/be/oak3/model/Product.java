@@ -5,12 +5,15 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.Serializable;
 import java.util.Comparator;
 
+import static org.apache.commons.lang3.StringUtils.join;
+
+
 public abstract class Product implements Comparator<Product>, Comparable<Product>, Serializable {
 
-    //    INSTANCE VARIABELEN
-    private int productNummer;
     private static int productNr = 1000;
     public String merk;
+    //    INSTANCE VARIABELEN
+    private int productNummer;
     private String naam;
     private int volume;
     private double prijs;
@@ -26,6 +29,10 @@ public abstract class Product implements Comparator<Product>, Comparable<Product
     }
 
     //GETTERS
+
+    public static Comparator<Product> sorteerOpMerknaam() {
+        return Comparator.comparing(Product::getMerk);
+    }
 
     public int getProductNummer() {
         return productNummer;
@@ -52,11 +59,8 @@ public abstract class Product implements Comparator<Product>, Comparable<Product
 //        https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html
 //        https://examples.javacodegeeks.com/core-java/apache/commons/lang3/stringutils/org-apache-commons-lang3-stringutils-example/
 
-         return StringUtils.upperCase(StringUtils.join(StringUtils.substring(merk,0,3),StringUtils.substring(naam,0,3), volume));
-    }
-
-    public static Comparator<Product> sorteerOpMerknaam() {
-        return Comparator.comparing(Product::getMerk);
+        return StringUtils.upperCase(join(StringUtils.substring(merk, 0, 3), StringUtils.substring(naam, 0, 3), volume));
+       // return join(left(merk, 3), left(naam, 3), volume)).replaceAll("","_").toUpperCase();
     }
 
     @Override

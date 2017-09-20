@@ -3,7 +3,6 @@ package be.oak3.model;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 //http://joel-costigliola.github.io/assertj/
@@ -24,7 +23,6 @@ public class ProductTest {
 
     @Test
     public void testProduct() {
-
         Assert.assertEquals("Testing ProductNummer", 1001, parfum.getProductNummer(), 0.000001);
         Assert.assertEquals("Testing merk", "BVLGARI", parfum.getMerk());
         Assert.assertEquals("Testing naam", "BLV", parfum.getNaam());
@@ -36,7 +34,6 @@ public class ProductTest {
 
     @Test
     public void testProduct2() {
-
         assertThat(product.getProductNummer()).isEqualTo(1001);
         assertThat(product.getMerk()).isEqualTo("Dolce & Gabbana");
         assertThat(product.getNaam()).isEqualTo("Light Blue");

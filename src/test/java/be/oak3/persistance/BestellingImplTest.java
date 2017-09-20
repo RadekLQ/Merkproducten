@@ -2,6 +2,7 @@ package be.oak3.persistance;
 
 import be.oak3.model.Aftershave;
 import be.oak3.model.Data;
+import be.oak3.model.Parfum;
 import be.oak3.model.Product;
 import com.google.common.collect.Lists;
 import org.junit.Before;
@@ -28,6 +29,15 @@ public class BestellingImplTest {
     }
 
     @Test
+    public void testLijstVanParfum() {
+        assertThat(bestelling).isInstanceOf(Parfum.class);
+        assertThat(bestelling).isExactlyInstanceOf(Aftershave.class);
+//        assertThat(bestelling.lijstVanParfums()).isNotNull();
+//        assertThat(bestelling.lijstVanParfums()).hasSize(7);
+//        assertThat(bestelling.lijstVanParfums()).first().isInstanceOf(Parfum.class);
+    }
+
+    @Test
     public void testVoegProductToe() throws Exception {
     }
 
@@ -47,15 +57,6 @@ public class BestellingImplTest {
     public void testLijstVanBepaaldMerk() throws Exception {
     }
 
-    @Test
-    public void testLijstVanParfum() {
-        assertThat(bestelling).isInstanceOf(Aftershave.class);
-        assertThat(bestelling).isExactlyInstanceOf(Aftershave.class);
-//        assertThat(bestelling.lijstVanParfums()).isNotNull();
-//        assertThat(bestelling.lijstVanParfums()).hasSize(7);
-//        assertThat(bestelling.lijstVanParfums()).first().isInstanceOf(Parfum.class);
-
-    }
 
     @Test
     public void testLijstVanGoedkopeProducten() throws Exception {

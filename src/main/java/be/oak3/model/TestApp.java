@@ -9,7 +9,8 @@ import java.util.List;
 
 public class TestApp {
 
-    final static Logger logger = LoggerFactory.getLogger(TestApp.class);
+    //LOG4J
+    private static final Logger logger = LoggerFactory.getLogger(TestApp.class);
 
     public static void main(String[] args) {
 
@@ -25,28 +26,29 @@ public class TestApp {
             bestelling.voegProductToe(artikel);
         }
 
-        System.out.println("Lijst gesorteerd op natuurlijke volgorde: ");
+//      System.out.println("Lijst gesorteerd op natuurlijke volgorde: ");  -> console application
+        logger.info("Lijst gesorteerd op natuurlijke volgorde: ");
         bestelling.sorteer();
 
-        System.out.println("\nLijst gesorteerd op merk: ");
+        logger.info("\nLijst gesorteerd op merk: ");
         bestelling.sorteerOpMerk();
 
-        System.out.println("\nLijst gesorteerd op volume: ");
+        logger.info("\nLijst gesorteerd op volume: ");
         bestelling.sorteerOpVolume();
 
-        System.out.println("\nVan het merk Georgio Armani:");
+        logger.info("\nVan het merk Georgio Armani:");
         bestelling.lijstVanBepaaldMerk("Georgio Armani");
 
-        System.out.println("\nAlle Parfums:");
+        logger.info("\nAlle Parfums:");
         bestelling.lijstVanParfums();
 
-        System.out.println("\nAlle producten onder €50; ");
+        logger.info("\nAlle producten onder €50; ");
         bestelling.lijstVanGoedkopeProducten();
 
         Product product = bestelling.zoekDuursteProduct();
-        System.out.println("\nDuurste product:\n" + product);
+        logger.info("\nDuurste product:\n" + product);
 
-        System.out.printf("\nTotale prijs: €%.2f", bestelling.totalePrijs());
+        logger.info("\nTotale prijs: €%.2f", bestelling.totalePrijs());
 
         logger.info("Exiting application.");
         logger.trace("Exiting application.");
