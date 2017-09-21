@@ -3,6 +3,7 @@ package be.oak3.model;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 //http://joel-costigliola.github.io/assertj/

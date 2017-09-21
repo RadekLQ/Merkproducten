@@ -3,26 +3,28 @@ package be.oak3.persistance;
 import be.oak3.model.Bereknebaar;
 import be.oak3.model.Product;
 
+import java.util.List;
+
 public interface Bestelling extends Bereknebaar {
+    void voegProductToe(Product product);
 
-    public void voegProductToe(Product product);
+    void sorteer();
 
-    public void sorteer();
+    void sorteerOpMerk();
 
-    public void sorteerOpMerk();
+    void sorteerOpVolume();
 
-    public void sorteerOpVolume();
+    Product zoekDuursteProduct();
 
-//    public void toonPerMerk(String merk); -> console application
-    public void lijstVanBepaaldMerk(String merk);
+    double totalePrijs();
 
-//    public void toonParfums(); -> console application
-    public void lijstVanParfums();
+    List<Product> lijstVanBepaaldMerk(String merk);
 
-//    public void toonGoedkopeProducten(); -> console application
-    public void lijstVanGoedkopeProducten();
+    List<Product> lijstVanParfums();
 
-    public Product zoekDuursteProduct();
+    List<Product> lijstVanGoedkopeProducten();
 
-    public double totalePrijs();
+    List<Product> getBestelling();
+
+
 }

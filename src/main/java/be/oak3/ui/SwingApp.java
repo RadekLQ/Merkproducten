@@ -1,8 +1,6 @@
 package be.oak3.ui;
 
-import be.oak3.model.Data;
 import be.oak3.model.Product;
-import be.oak3.persistance.Bestelling;
 import be.oak3.persistance.BestellingImpl;
 
 import javax.swing.*;
@@ -33,13 +31,13 @@ public class SwingApp extends JFrame {
         lblResultaatInvoer = new JLabel();
         lblRestulaatButton = new JLabel();
         lstProducten = new JList<>();
-        lstProducten.setListData(Data.artikels);
+//        lstProducten.setListData(Data.artikels);
 
-        BestellingImpl bestelling = new BestellingImpl() ;
+        BestellingImpl bestelling = new BestellingImpl();
         bestelling.sorteer();
 
-        lstProducten.setListData(bestelling.getProducten().toArray(new Product[0]));
-        lstProducten.setListData(bestelling.lijstVanParfums().toArray(new Product[0]));
+//        lstProducten.setListData(bestelling.getProducten().toArray(new Product[0]));
+//        lstProducten.setListData(bestelling.lijstVanParfums().toArray(new Product[0]));
 
         bestelling.sorteerOpMerk();
 

@@ -1,19 +1,19 @@
 package be.oak3.model;
 
 public class Deodorant extends Product {
-    public enum DeoType {VAPO, STICK}
 
-    ;
-    private DeoType deoType;
+    private DeoType soort;
 
-    public Deodorant(int productNummer, String merk, String naam, int volume, double prijs, DeoType deoType) {
+    public Deodorant(int productNummer, String merk, String naam, int volume, double prijs, DeoType soort) {
         super(productNummer, merk, naam, volume, prijs);
-        this.deoType = deoType;
+        this.soort = soort;
     }
 
     @Override
     public String toString() {
-        return super.toString() + "\t" + deoType.toString();
+
+        return super.toString() + '\t' + soort;
     }
 
+    public enum DeoType {VAPO, STICK}
 }

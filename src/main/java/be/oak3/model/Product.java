@@ -1,37 +1,27 @@
 package be.oak3.model;
 
-import java.io.Serializable;
 import java.util.Comparator;
-import static org.apache.commons.lang3.StringUtils.*;
 
-public abstract class Product implements Comparator<Product>, Comparable<Product>, Serializable {
+import static org.apache.commons.lang3.StringUtils.join;
+import static org.apache.commons.lang3.StringUtils.left;
 
-    //    INSTANCE VARIABELEN
-    private static int productNr = 1000;
-    public String merk;
+public abstract class Product {
     private int productNummer;
+    private String merk;
     private String naam;
     private int volume;
     private double prijs;
 
-    // CONSTRUCTOR met parameters
-    public Product(int productNummer, String merk, String naam, int volume, double prijs) {
+    Product(int productNummer, String merk, String naam, int volume, double prijs) {
         this.productNummer = productNummer;
         this.merk = merk;
         this.naam = naam;
         this.volume = volume;
         this.prijs = prijs;
-        this.productNr++;
     }
-
-    //GETTERS
 
     public static Comparator<Product> sorteerOpMerknaam() {
         return Comparator.comparing(Product::getMerk);
-    }
-
-    public int getProductNummer() {
-        return productNummer;
     }
 
     public String getMerk() {
@@ -50,30 +40,12 @@ public abstract class Product implements Comparator<Product>, Comparable<Product
         return prijs;
     }
 
-
-
-    public String getProductCode() {
-//        return (merk.substring(0, 3) + naam.substring(0, 3) + volume).toUpperCase().replace(" ", "_");
-//        https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html
-//        https://examples.javacodegeeks.com/core-java/apache/commons/lang3/stringutils/org-apache-commons-lang3-stringutils-example/
-
-        return join(substring(merk, 0, 3), substring(naam, 0, 3), volume).toUpperCase();
-//        return join(left(merk, 3), left(naam, 3), volume).replaceAll("_","").toUpperCase();
+    public int getProductNummer() {
+        return productNummer;
     }
 
-    @Override
-    public int compare(Product o1, Product o2) {
-        return o1.getMerk().compareTo(o2.getMerk());
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (!(o instanceof Product)) {
-            return false;
-        }
-
-        Product p = (Product) o;
-        return productNummer == p.getProductNummer();
+    public void setProductNummer(int productNummer) {
+        this.productNummer = productNummer;
     }
 
     @Override
@@ -81,15 +53,14 @@ public abstract class Product implements Comparator<Product>, Comparable<Product
         return productNummer;
     }
 
-    @Override
-    public int compareTo(Product p) {
-        return productNummer - p.getProductNummer();
+    public String getProductCode() {
+        return join(left(merk, 3), left(naam, 3), volume).toUpperCase().replace(" ", "_");
     }
 
     @Override
     public String toString() {
-        return String.format("%d %s %-20s %10s %-24s %10s %3sml %8s %4.2f %5s %s",
-                getProductNummer(), "Merk:", getMerk(), "Naam:", getNaam(), "Volume:", getVolume(),
-                "Prijs:", getPrijs(), "Code:", getProductCode());
+
+        return String.format("%-15d merk: %-20s naam: %-25s volume: %5dml \t prijs: %-10.2f Code: %-10s",
+                productNummer, merk, naam, volume, prijs, getProductCode());
     }
 }
