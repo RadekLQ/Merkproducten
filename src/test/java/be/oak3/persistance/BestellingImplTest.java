@@ -16,13 +16,13 @@ public class BestellingImplTest {
 
     @BeforeClass
     public static void init() {
-        List<Product> lijst = Data.getData();
+        List<Product> producten = Data.getData();
         bestelling = new BestellingImpl();
-        for (Product artikel : lijst) {
-            bestelling.voegProductToe(artikel);
+        for (Product product : producten) {
+            bestelling.voegProductToe(product);
         }
         bestelling2 = new BestellingImpl();
-        for (Product artikel : lijst) {
+        for (Product artikel : producten) {
             bestelling2.voegProductToe(artikel);
         }
     }
@@ -47,6 +47,7 @@ public class BestellingImplTest {
 
     @Test
     public void testsorteer() throws Exception {
+        bestelling.sorteer();
     }
 
     @Test

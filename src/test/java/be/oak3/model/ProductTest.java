@@ -36,6 +36,7 @@ public class ProductTest {
     @Test
     public void testProduct2() {
         assertThat(product.getProductNummer()).isEqualTo(1001);
+        assertThat(product.getProductCode()).isEqualTo("DOLLIG100");
         assertThat(product.getMerk()).isEqualTo("Dolce & Gabbana");
         assertThat(product.getNaam()).isEqualTo("Light Blue");
         assertThat(product.getVolume()).isEqualTo(100);

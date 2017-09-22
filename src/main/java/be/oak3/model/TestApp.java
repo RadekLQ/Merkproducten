@@ -1,6 +1,7 @@
 package be.oak3.model;
 
 import be.oak3.persistance.BestellingImpl;
+import be.oak3.persistance.Bestelling;
 
 import java.util.List;
 
@@ -8,7 +9,7 @@ public class TestApp {
     public static void main(String[] args) {
         System.out.printf("Oplossing van %s %s\n", "Radek Lizak ", "Eterprise Java Trainee");
 
-        be.oak3.persistance.Bestelling bestelling = new BestellingImpl();
+        Bestelling bestelling = new BestellingImpl();
         List<Product> lijst = Data.getData();
 
         for (Product artikel : lijst) {
