@@ -14,7 +14,7 @@ public class BestellingDaoImpl implements Bestelling {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         Properties props = new Properties();
-        String sqlMax = "SELECT MAX(prijs) AS MaxPrijs FROM product;";
+        String sqlMax = "SELECT product.product_nummer,merk,naam,volume,prijs, type_pr.type, type_pr.soort FROM product  INNER JOIN type_pr ON product.product_nummer=type_pr.product_Nummer WHERE prijs = (SELECT max(prijs) FROM product);";
 
         try {
             FileInputStream fis = new FileInputStream("Merkproducten.properties");
@@ -40,10 +40,15 @@ public class BestellingDaoImpl implements Bestelling {
             double maxPrice = 0;
 
             if (rs.next()) {
-                maxPrice = rs.getDouble(1);
+                maxPrice = rs.getDouble("prijs");
             }
+            String productCode = rs.getString("product_nummer");
+            String merk = rs.getString("merk");
+            String naam = rs.getString("naam");
+            int volume = rs.getInt("volume");
 
-            System.out.format("%s", maxPrice);
+            System.out.println("Duurste product:");
+            System.out.format("%s Merk: %s Naam: %s Volume: %s Prijs %s",productCode, merk, naam,  volume, maxPrice);
 
         } catch (IOException | ClassNotFoundException | SQLException ex) {
             System.out.println("Oops, something went wrong!");
