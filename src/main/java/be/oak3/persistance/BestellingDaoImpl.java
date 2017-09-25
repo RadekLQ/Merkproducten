@@ -4,16 +4,17 @@ import be.oak3.model.Product;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 import java.util.Properties;
 
 public class BestellingDaoImpl implements Bestelling {
 
-    public static void main(String[] args) {
+    public List<Product> producten;
+
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         Properties props = new Properties();
+        String sqlMax = "SELECT MAX(prijs) AS MaxPrijs FROM product;";
 
         try {
             FileInputStream fis = new FileInputStream("Merkproducten.properties");
@@ -33,6 +34,17 @@ public class BestellingDaoImpl implements Bestelling {
             Connection con = DriverManager.getConnection(url, username, password);
 
             System.out.println("Connect to DB OK");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlMax);
+
+            double maxPrice = 0;
+
+            if (rs.next()) {
+                maxPrice = rs.getDouble(1);
+            }
+
+            System.out.format("%s", maxPrice);
+
         } catch (IOException | ClassNotFoundException | SQLException ex) {
             System.out.println("Oops, something went wrong!");
             ex.printStackTrace(System.err);
@@ -41,6 +53,7 @@ public class BestellingDaoImpl implements Bestelling {
 
     @Override
     public void voegProductToe(Product product) {
+
 
     }
 

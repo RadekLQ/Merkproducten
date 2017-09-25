@@ -7,6 +7,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+
+//https://www.journaldev.com/2471/jdbc-example-mysql-oracle
+//https://stackoverflow.com/questions/4085420/how-do-i-read-a-properties-file-and-connect-a-mysql-database
 public class ConnectDBpropertiesFile {
 
 
