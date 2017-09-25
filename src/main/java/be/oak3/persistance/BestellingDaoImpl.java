@@ -4,7 +4,7 @@ import be.oak3.model.Product;
 
 import java.util.List;
 
-public class BestellingDAOImpl implements Bestelling {
+public class BestellingDaoImpl implements Bestelling {
 
     @Override
     public void voegProductToe(Product product) {

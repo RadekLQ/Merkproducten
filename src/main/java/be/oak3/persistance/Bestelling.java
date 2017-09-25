@@ -16,8 +16,6 @@ public interface Bestelling extends Bereknebaar {
 
     Product zoekDuursteProduct();
 
-    double totalePrijs();
-
     List<Product> lijstVanBepaaldMerk(String merk);
 
     List<Product> lijstVanParfums();
