@@ -8,22 +8,18 @@ public class BestellingDaoImpl implements Bestelling {
 
     @Override
     public void voegProductToe(Product product) {
-
     }
 
     @Override
     public void sorteer() {
-
     }
 
     @Override
     public void sorteerOpMerk() {
-
     }
 
     @Override
     public void sorteerOpVolume() {
-
     }
 
     @Override
